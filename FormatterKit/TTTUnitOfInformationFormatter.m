@@ -211,7 +211,7 @@ static inline NSString * TTTByteUnitStringForSIPrefix(TTTUnitPrefix prefix) {
 
         doubleValue /= [self scaleFactorForPrefix:prefix];
     }
-
+    [_numberFormatter setPositiveFormat:@"0.##"];
     return [NSString stringWithFormat:NSLocalizedStringWithDefaultValue(@"Unit of Information Format String", @"FormatterKit", [NSBundle formatterKitBundle], @"%@ %@", @"#{Value} #{Unit}"), [_numberFormatter stringFromNumber:@(doubleValue)], unitString];
 }
 
